@@ -62,11 +62,11 @@ export default function PWAInstallPrompt() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg">
+    <div className="fixed bottom-4 right-4 bg-slate-300 text-black p-4 rounded-lg shadow-lg">
       <p className="mb-2">Install this app on your device!</p>
       <button
         onClick={handleInstallClick}
-        className="bg-white text-blue-600 px-4 py-2 rounded font-semibold hover:bg-gray-100"
+        className="bg-emerald-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-emerald-500 hover:cursor-pointer"
       >
         Install App
       </button>
