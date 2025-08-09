@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
 
           <div className="relative">
             <h1 className="bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-rose-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
-              Visitor Book
+              Visitor List
             </h1>
             <p className="mt-2 text-sm text-slate-600">{visitorCountLabel}</p>
 
