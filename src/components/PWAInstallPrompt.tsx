@@ -63,10 +63,36 @@ export default function PWAInstallPrompt() {
 
   return (
     <div className="fixed bottom-4 right-4 bg-slate-300 text-black p-4 rounded-lg shadow-lg">
-      <p className="mb-2">Install this app on your device!</p>
+      <div className="flex justify-end !mt-[-8px] !mr-[-10px]">
+        <button
+          aria-label="Close install prompt"
+          onClick={() => {
+            setIsInstallable(false);
+            setDeferredPrompt(null);
+          }}
+          className="text-red-600 hover:cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="h-4 w-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <p className="mb-2 mt-1 text-sm">Install this app on your device!</p>
       <button
         onClick={handleInstallClick}
-        className="bg-emerald-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-emerald-500 hover:cursor-pointer"
+        className="rounded-xl bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-rose-600 px-4 py-2 text-sm font-semibold text-white shadow hover:cursor-pointer hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       >
         Install App
       </button>
