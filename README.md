@@ -19,7 +19,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ### Setup NextJs PWA
-Install ```bash npm i next-pwa``` 
+Install next pwa package
+```bash 
+npm i next-pwa
+``` 
 
 ### Web App Manifest
 
@@ -486,6 +489,21 @@ export default function PWAInstallPrompt() {
   );
 }
 ```
+### Change(Replace this file)
+`next.config.ts`
+```typescript
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const withPWA = require("next-pwa")({
+  dest: "public",
+});
+
+module.exports = withPWA({
+  // next.js config
+});
+
+```
+
+
 ### Now run 
 ```bash
 npm run build
