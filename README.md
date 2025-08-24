@@ -97,7 +97,7 @@ This command:
 
 The root layout (`src/app/layout.tsx`) includes:
 
-##Example `loyout.tsx`
+### Example `loyout.tsx`
 ```typescript
 import { Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -356,7 +356,7 @@ export default function RootLayout({
   );
 }
 ```
-###Now Make `src/components/ServiceWorkerRegistration.tsx`
+### Now Make `src/components/ServiceWorkerRegistration.tsx`
 ```typescript
 "use client";
 import { useEffect } from "react";
@@ -377,7 +377,7 @@ export default function ServiceWorkerRegistration() {
   return null;
 }
 ```
-###For Installation Prompt, make `src/components/PWAInstallPrompt.tsx` file
+### For Installation Prompt, make `src/components/PWAInstallPrompt.tsx` file
 ```typescript
 "use client";
 import { useEffect, useState } from "react";
