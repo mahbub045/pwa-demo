@@ -21,7 +21,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 ### Setup NextJs PWA
 Install next pwa package
 ```bash 
-npm i next-pwa
+npm i @ducanh2912/next-pwa
 ``` 
 
 ### Web App Manifest
@@ -492,17 +492,24 @@ export default function PWAInstallPrompt() {
 ### Change(Replace this file)
 `next.config.ts`
 ```typescript
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const withPWA = require("next-pwa")({
+import type { NextConfig } from "next";
+import withPWA from "@ducanh2912/next-pwa";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default withPWA({
   dest: "public",
-});
-
-module.exports = withPWA({
-  // next.js config
-});
-
+  disable: process.env.NODE_ENV === "development",
+  register: true,
+  sw: "sw.js",
+  workboxOptions: {
+    disableDevLogs: true,
+  },
+})(nextConfig);
 ```
-
+## Now Remove `--turbopack` from `package.json`
 
 ### Now run 
 ```bash
