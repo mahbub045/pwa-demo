@@ -18,6 +18,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+### Setup NextJs PWA
+Install ```bash npm i next-pwa``` 
+
 ### Web App Manifest
 
 The app includes a Web App Manifest (`src/app/manifest.ts`) that defines:
