@@ -509,7 +509,7 @@ export default withPWA({
   },
 })(nextConfig);
 ```
-## Now Remove `--turbopack` from `package.json`
+# Now Remove `--turbopack` from `package.json`
 
 ### Now run 
 ```bash
