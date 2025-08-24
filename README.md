@@ -509,7 +509,16 @@ export default withPWA({
   },
 })(nextConfig);
 ```
-Now Remove `--turbopack` from `package.json`
+Now Remove `--turbopack` from build in `package.json`
+Example:
+```typescript
+"scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+```
 
 ### Now run 
 ```bash
