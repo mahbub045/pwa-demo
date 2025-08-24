@@ -356,7 +356,7 @@ export default function RootLayout({
   );
 }
 ```
-#Now Make `src/components/ServiceWorkerRegistration.tsx`
+###Now Make `src/components/ServiceWorkerRegistration.tsx`
 ```typescript
 "use client";
 import { useEffect } from "react";
@@ -377,7 +377,7 @@ export default function ServiceWorkerRegistration() {
   return null;
 }
 ```
-#For Installation Prompt make `src/components/PWAInstallPrompt.tsx` file
+###For Installation Prompt, make `src/components/PWAInstallPrompt.tsx` file
 ```typescript
 "use client";
 import { useEffect, useState } from "react";
@@ -480,7 +480,7 @@ export default function PWAInstallPrompt() {
   );
 }
 ```
-##Now run 
+###Now run 
 ```bash
 npm run build
 ```
