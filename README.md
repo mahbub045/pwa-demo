@@ -18,19 +18,100 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Web App Manifest
 
-## Learn More
+The app includes a Web App Manifest (`src/app/manifest.ts`) that defines:
 
-To learn more about Next.js, take a look at the following resources:
+```typescript
+import type { MetadataRoute } from 'next'
+ 
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'Next.js PWA',
+    short_name: 'NextPWA',
+    description: 'A Progressive Web App built with Next.js',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#ffffff',
+    theme_color: '#000000',
+    orientation: 'portrait',
+    scope: '/',
+    id: '/',
+    icons: [
+      {
+        src: '/manifest-icon-192.maskable.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any'
+      },
+      {
+        src: '/manifest-icon-192.maskable.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable'
+      },
+      {
+        src: '/manifest-icon-512.maskable.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any'
+      },
+      {
+        src: '/manifest-icon-512.maskable.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable'
+      },
+    ],
+  }
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Apple Device Optimization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The layout includes comprehensive Apple device support with:
 
-## Deploy on Vercel
+- **Apple Touch Icons**: Optimized icons for iOS home screen
+- **Apple Splash Screens**: Custom splash screens for all iOS device sizes
+- **Apple Web App Configuration**: Status bar styling and web app capabilities
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Generating PWA Assets
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To regenerate PWA assets, use the following command:
+
+```bash
+npx pwa-asset-generator public/next.svg public -m src/app/manifest.ts --padding "calc(50vh - 25%) calc(50vw - 25%)" -q 100 -i public/asset-generator-changes.html --favicon
+```
+
+This command:
+
+- Uses `public/next.svg` as the source icon
+- Generates assets in the `public` folder
+- Updates the manifest file at `src/app/manifest.ts`
+- Applies custom padding for better icon appearance
+- Sets quality to 100%
+- Generates a change log in `public/asset-generator-changes.html`
+- Includes favicon generation
+
+### Layout Configuration
+
+The root layout (`src/app/layout.tsx`) includes:
+
+- **Metadata Configuration**: Icons, Apple touch icons, and startup images
+- **Viewport Settings**: Optimized for mobile with maximum scale and user scalable settings
+- **Apple Web App Settings**: Status bar styling and startup images for various device sizes
+- **Theme Provider**: System theme support with class-based theming
+
+### Supported Devices
+
+The PWA includes splash screens for:
+
+- iPad Pro (12.9-inch and 11-inch)
+- iPad Air and iPad Mini
+- iPhone 14 Pro Max, iPhone 14 Pro, iPhone 14, iPhone 14 Plus
+- iPhone 13 series
+- iPhone 12 series
+- iPhone 11 series
+- iPhone X series
+- iPhone 8 series
+- iPhone SE
